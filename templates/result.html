@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Resume Screening Results</title>
 
-  <!-- Link to Bootstrap CSS -->
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}" />
+  <!-- Link to Bootstrap CSS from CDN -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -30,16 +30,20 @@
   <section>
     <div class="container">
       <h1>Resume Screening Results</h1>
-      <ul>
+      <ul class="list-group">
         {% for result in results %}
-          <li>
+          <li class="list-group-item">
             <strong>{{ result.filename }}</strong>: {{ result.category }}
           </li>
         {% endfor %}
       </ul>
-      <a href="{{ url_for('index') }}">Upload more resumes</a>
+      <a href="{{ url_for('index') }}" class="btn btn-primary mt-3">Upload more resumes</a>
     </div>
   </section>
+  
+  <!-- Optional: Include jQuery and Bootstrap JS (optional if you need JS functionality) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   
 </body>
 
